@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>User</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+
+<header>
+    <nav class="navbar navbar-dark bg-dark">
+<span class="navbar-brand" id="navbarBrandAdmin">
+    <a style="font-weight:bold" th:text="${autorUser.getEmail()}">user</a>
+    <a th:each="role:${autorUser.roles}"
+       th:text="'whith roles:' +' '+${role.role.contains('ADMIN')?'ADMIN USER':'USER'}">user</a>
+</span>
+        <form th:action="@{/logout}" th:method="POST">
+            <button type="submit" class="btn btn-outline-dark" style="color: lightgrey">Logout</button>
+        </form>
+    </nav>
+</header>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="position-sticky pt-3">
+                <ul class="nav nav-pills flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active " href="/user">
+                            User
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">User information-page </h1>
+            </div>
+            <div>
+                <h4>About user</h4>
+                <br>
+                <div class="table-responsive">
+                    <table class="table table-striped table-sm">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Login</th>
+                            <th>Email</th>
+                            <th>User</th>
+                            <th>Role</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <td th:width="70">
+                            <a th:text="${autorUser.getId()}">user</a>
+                        </td>
+                        <td th:width="70">
+                            <a th:text="${autorUser.getLogin()}">user</a>
+                        </td>
+                        <td th:width="70">
+                            <a th:text="${autorUser.getEmail()}">user</a>
+                        </td>
+                        <td th:width="70">
+                            <a th:text="${autorUser.getName()} + ' ' + ${autorUser.getSurname()}">user</a>
+                        </td>
+                        <td th:width="70">
+                            <a th:each="role:${autorUser.roles}"
+                               th:text="${role.role.contains('ADMIN')?'ADMIN':'USER'}">user</a>
+                        </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
