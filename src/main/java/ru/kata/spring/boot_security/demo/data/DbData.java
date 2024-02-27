@@ -30,9 +30,10 @@ public class DbData {
         roleService.addRole(userRole);
 
         userService.addUser(new User("Tod", "Todes", 26,
-                "Tod@qwer.com", "kaktus", "admin", List.of(adminRole)));
+                "admin@mail.ru", "admin@mail.ru", "admin", List.of(adminRole)));
+
         userService.addUser(new User("Mot", "Modes", 36,
-                "Mot@rmcf.com", "piktus", "user", List.of(userRole)));
+                "user@mail.ru", "user@mail.ru", "user", List.of(userRole)));
 
         userService.addUser(new User("Tom", "Tomes", 88,
                 "Tom@qwer.com", "TomTom", "user", List.of(userRole)));

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,7 +32,7 @@
             <div class="position-sticky pt-3">
                 <ul class="nav nav-pills flex-column">
                     <li class="nav-item">
-                        <a class="nav-link active " href="/user">
+                        <a class="nav-link active " href="#userPanel">
                             User
                         </a>
                     </li>
@@ -40,7 +40,7 @@
             </div>
         </nav>
 
-        <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+        <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4" id="userPanel">
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">User information-page </h1>
             </div>
@@ -55,6 +55,7 @@
                             <th>Login</th>
                             <th>Email</th>
                             <th>User</th>
+                            <th>Age</th>
                             <th>Role</th>
                         </tr>
                         </thead>
@@ -70,6 +71,9 @@
                         </td>
                         <td th:width="70">
                             <a th:text="${autorUser.getName()} + ' ' + ${autorUser.getSurname()}">user</a>
+                        </td>
+                        <td th:width="70">
+                            <a th:text="${autorUser.getAge()}">user</a>
                         </td>
                         <td th:width="70">
                             <a th:each="role:${autorUser.roles}"

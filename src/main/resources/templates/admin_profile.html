@@ -78,6 +78,7 @@
                                     <th>Login</th>
                                     <th>Email</th>
                                     <th>User</th>
+                                    <th>Age</th>
                                     <th>Role</th>
                                     <th>Action</th>
                                 </tr>
@@ -95,6 +96,9 @@
                                     </td>
                                     <td th:width="70">
                                         <a th:text="${user.getName()} + ' ' + ${user.getSurname()}">user</a>
+                                    </td>
+                                    <td th:width="70">
+                                        <a th:text="${user.getAge()}">user</a>
                                     </td>
                                     <td th:width="70">
                                         <a th:each="role:${user.roles}"
@@ -377,6 +381,7 @@
                                     <th>Login</th>
                                     <th>Email</th>
                                     <th>User</th>
+                                    <th>Age</th>
                                     <th>Role</th>
                                 </tr>
                                 </thead>
@@ -392,6 +397,9 @@
                                 </td>
                                 <td th:width="70">
                                     <a th:text="${autorUser.getName()} + ' ' + ${autorUser.getSurname()}">user</a>
+                                </td>
+                                <td th:width="70">
+                                    <a th:text="${autorUser.getAge()}">user</a>
                                 </td>
                                 <td th:width="70">
                                     <a th:each="role:${autorUser.roles}"

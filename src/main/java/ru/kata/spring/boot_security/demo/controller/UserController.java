@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.kata.spring.boot_security.demo.dao.UserDao;
 import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.service.RoleServiceImpl;
 import ru.kata.spring.boot_security.demo.service.UserService;
@@ -29,7 +28,7 @@ public class UserController {
         this.roleService = roleService;
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public String userPage(@Valid @ModelAttribute("user") User user, Model model, Principal principal) {
         model.addAttribute("roles", roleService.getListOfRoles());
         User autorUser = userService.findUserByLogin(principal.getName());
